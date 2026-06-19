@@ -1,0 +1,8 @@
+CREATE TABLE pedidos (
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL,
+    quantity INTEGER NOT NULL,
+    total DOUBLE PRECISION NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    date TIMESTAMP NOT NULL
+);
