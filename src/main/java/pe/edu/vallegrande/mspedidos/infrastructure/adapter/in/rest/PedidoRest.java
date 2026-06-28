@@ -13,27 +13,27 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class PedidoRest {
 
-    private final IPedidoServicePort pedidoService;
+    private final IPedidoServicePort servicePort;
 
     @GetMapping
     public Flux<Pedido> findAll() {
-        return pedidoService.findAll();
+        return servicePort.findAll();
     }
 
     @GetMapping("/{id}")
     public Mono<Pedido> findById(@PathVariable Long id) {
-        return pedidoService.findById(id);
+        return servicePort.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<Pedido> create(@RequestBody Pedido order) {
-        return pedidoService.create(order);
+    public Mono<Pedido> save(@RequestBody Pedido order) {
+        return servicePort.create(order);
     }
 
-    @DeleteMapping("/{id}")
+    @PatchMapping("/{id}/cancel")
     public Mono<Pedido> cancel(@PathVariable Long id) {
-        return pedidoService.cancel(id);
+        return servicePort.cancel(id);
     }
 
 }

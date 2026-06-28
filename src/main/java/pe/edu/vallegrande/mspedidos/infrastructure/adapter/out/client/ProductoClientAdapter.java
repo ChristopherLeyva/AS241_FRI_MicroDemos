@@ -1,4 +1,4 @@
-package pe.edu.vallegrande.mspedidos.infrastructure.adapter.out.client;
+   package pe.edu.vallegrande.mspedidos.infrastructure.adapter.out.client;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
