@@ -26,9 +26,8 @@ public class ProductoClientAdapter implements IProductoClientPort {
 
     @Override
     public Mono<Producto> decreaseStock(Long id, Integer quantity) {
-        return webClient.put()
-                .uri("/api/productos/{id}/stock", id)
-                .bodyValue(quantity)
+        return webClient.patch()
+                .uri("/api/productos/{id}/decrease-stock?quantity={quantity}", id, quantity)
                 .retrieve()
                 .bodyToMono(Producto.class);
     }
