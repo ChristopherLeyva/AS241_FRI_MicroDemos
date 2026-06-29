@@ -12,9 +12,8 @@ public class ProductoClientAdapter implements IProductoClientPort {
 
     private final WebClient webClient;
 
-    public ProductoClientAdapter(WebClient.Builder webClientBuilder,
-                                  @Value("${servicios.productos-url}") String baseUrl) {
-        this.webClient = webClientBuilder.baseUrl(baseUrl).build();
+    public ProductoClientAdapter(@Value("${servicios.productos-url}") String baseUrl) {
+        this.webClient = WebClient.builder().baseUrl(baseUrl).build();
     }
 
     @Override
