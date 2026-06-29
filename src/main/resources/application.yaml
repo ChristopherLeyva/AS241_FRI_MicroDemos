@@ -5,14 +5,10 @@ spring:
   application:
     name: ms-pedidos
 
-  sql:
-    init:
-      mode: never
-
   r2dbc:
-    url: r2dbc:postgresql://${DB_HOST:ep-lingering-dust-ahp11our-pooler.c-3.us-east-1.aws.neon.tech}:${DB_PORT:5432}/${DB_NAME:neondb}?sslMode=${DB_SSL_MODE:require}
-    username: ${DB_USER:neondb_owner}
-    password: ${DB_PASSWORD:npg_dtSPD6gb9aks}
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:postgres}?sslMode=${DB_SSL_MODE:disable}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:password}
 
 servicios:
   productos-url: ${PRODUCTOS_SERVICE_URL:http://localhost:8081}
@@ -21,7 +17,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health, info, metrics
 
   endpoint:
     health:
@@ -30,7 +26,7 @@ management:
         enabled: true
 
   health:
-    readinessstate:
+    readinessState:
       enabled: true
-    livenessstate:
+    livenessState:
       enabled: true
