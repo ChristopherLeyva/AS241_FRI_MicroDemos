@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ms-config
+  namespace: ms-pedidos-ns
+data:
+  PRODUCTOS_SERVICE_URL: "http://ms-productos:8081"
+  DB_HOST: "ep-lingering-dust-ahp11our-pooler.c-3.us-east-1.aws.neon.tech"
+  DB_NAME: "neondb"
+  DB_USER: "neondb_owner"
+  DB_SSL_MODE: "require"
